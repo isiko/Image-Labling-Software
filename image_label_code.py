@@ -150,7 +150,7 @@ def image_labeling(file):
     #    for y in range(10):
     #        img1[i][y]=img[i][y]
 
-    cv2.namedWindow(file, cv2.WINDOW_AUTOSIZE)
+    cv2.namedWindow(file, cv2.WINDOW_FREERATIO)
     #cv2.createTrackbar('size', file, size, 799, nothing)
     #cv2.createTrackbar('rubber', file, rubber, 49, nothing)
     #cv2.createTrackbar('etching', file, etching_True_False, 1, nothing)
