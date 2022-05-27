@@ -9,6 +9,7 @@ file_output="output/"
 img_type=".png"
 
 files = os.listdir(file_input)
+files_out = os.listdir(file_output)
 global factor, hud_size, button_down, width, height, old_move_x, old_move_y, move_x, move_y
 width, height=(1919,1029)
 button_down=False
@@ -259,13 +260,26 @@ size=100
 for file in files:
     if not file.endswith(img_type):
         continue
+
+    print(f"Checking file {file.split('.')[0]}")
+
+    labeled = False
+    for label in files_out:
+        if label.split('_')[0] == file.split('.')[0]:
+            print("Skiped")
+            labeled = True
     
+    if labeled:
+        continue
+
+    print(f"Labeling file {file.split('.')[0]}")
+
     image_labeling(file)
     #rubber = cv2.getTrackbarPos('rubber', file)
     #etching_True_False = cv2.getTrackbarPos('etching', file)
     cv2.destroyWindow(file)#optional
     save= str(file_output+file).replace(img_type, "_labeled"+img_type) #####Kann ich auch noch gerne überarbeiten, halte ich aber für unnötig
-    print(save)
+    print(f"Created Label {save}")
     img1 = cv2.resize(img1, (int(img_original.shape[1]), int(img_original.shape[0])), interpolation=cv2.INTER_LINEAR)
     img1=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
     cv2.imwrite(save, img1)
