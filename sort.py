@@ -63,8 +63,8 @@ for file in files:
 
     img_in=cv2.imread(file_data+file.replace("_labeled", ""))
     img_out=cv2.imread(file_input+file)
-    cv2.imshow(file + " out", img_out)
-    cv2.imshow(file + " in", img_in)
+    #cv2.imshow(file + " out", img_out)
+    cv2.imshow(file, cv2.hconcat([img_in, img_out]))
     
     label_index = cv2.waitKey(0) - 48
 
