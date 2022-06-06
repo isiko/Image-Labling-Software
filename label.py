@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 
 file_input="input/"
-file_output="output/"
+file_output="output_outline/"
 # img_type=".jpeg"
 img_type=".png"
 
@@ -160,7 +160,7 @@ def image_labeling(file):
 
     #window = np.concatenate((img, barrier, img1), axis=1)
     #cv2.imshow(file, window)
-    cv2.moveWindow(file, 0, 0)
+    # cv2.moveWindow(file, 0, 0)
     while True:
         background_copy=background.copy()
         cv2.namedWindow(file, cv2.WINDOW_AUTOSIZE)
